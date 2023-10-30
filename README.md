@@ -24,7 +24,7 @@ We can use <img>. However, we have to manually do the following things.
 - Lazy load images that are outside the user's viewpoint.
 NextJS Image resolves these issues.
 
-## Chapter 4
+## Chapter 4, 5
 
 How Routing and Navigation works
 Ref: https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#how-routing-and-navigation-works
