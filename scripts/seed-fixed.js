@@ -11,9 +11,20 @@ async function seedUsers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
+    // Reset the "users" table
+    await client.sql`DROP TABLE IF EXISTS users;`;
+
     // Create the "users" table if it doesn't exist
+    // const createTable = await client.sql`
+    //   CREATE TABLE IF NOT EXISTS users (
+    //     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    //     name VARCHAR(255) NOT NULL,
+    //     email TEXT NOT NULL UNIQUE,
+    //     password TEXT NOT NULL
+    //   );
+    // `;
     const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS users (
+      CREATE TABLE users (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         email TEXT NOT NULL UNIQUE,
@@ -51,9 +62,21 @@ async function seedInvoices(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
+    // Reset the "invoices" table
+    await client.sql`DROP TABLE IF EXISTS invoices CASCADE;`;
+
     // Create the "invoices" table if it doesn't exist
+    // const createTable = await client.sql`
+    //   CREATE TABLE IF NOT EXISTS invoices (
+    //   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    //   customer_id UUID NOT NULL,
+    //   amount INT NOT NULL,
+    //   status VARCHAR(255) NOT NULL,
+    //   date DATE NOT NULL
+    // );
+    // `;
     const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS invoices (
+      CREATE TABLE invoices (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       customer_id UUID NOT NULL,
       amount INT NOT NULL,
@@ -91,9 +114,20 @@ async function seedCustomers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
+    // Reset the "customers" table
+    await client.sql`DROP TABLE IF EXISTS customers CASCADE;`;
+
     // Create the "customers" table if it doesn't exist
+    // const createTable = await client.sql`
+    //   CREATE TABLE IF NOT EXISTS customers (
+    //   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    //   name VARCHAR(255) NOT NULL,
+    //   email TEXT NOT NULL UNIQUE,
+    //   image_url VARCHAR(255) NOT NULL
+    //   );
+    // `;
     const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS customers (
+      CREATE TABLE customers (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       email TEXT NOT NULL UNIQUE,
@@ -128,9 +162,18 @@ async function seedCustomers(client) {
 
 async function seedRevenue(client) {
   try {
+    // Reset the "revenue" table
+    await client.sql`DROP TABLE IF EXISTS revenue;`;
+
     // Create the "revenue" table if it doesn't exist
+    // const createTable = await client.sql`
+    //   CREATE TABLE IF NOT EXISTS revenue (
+    //   month VARCHAR(4) NOT NULL UNIQUE,
+    //   revenue INT NOT NULL
+    //   );
+    // `;
     const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS revenue (
+      CREATE TABLE revenue (
       month VARCHAR(4) NOT NULL UNIQUE,
       revenue INT NOT NULL
       );
