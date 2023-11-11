@@ -25,8 +25,6 @@ export default function NavLinks() {
   // const pathname = window.location.pathname;
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <>
       {links.map((link) => {
