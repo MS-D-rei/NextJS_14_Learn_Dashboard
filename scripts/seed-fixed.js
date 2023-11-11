@@ -12,7 +12,7 @@ async function seedUsers(client) {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
     // Reset the "users" table
-    await client.sql`DROP TABLE IF EXISTS users;`;
+    // await client.sql`DROP TABLE IF EXISTS users;`;
 
     // Create the "users" table if it doesn't exist
     // const createTable = await client.sql`
@@ -63,7 +63,7 @@ async function seedInvoices(client) {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
     // Reset the "invoices" table
-    await client.sql`DROP TABLE IF EXISTS invoices CASCADE;`;
+    // await client.sql`DROP TABLE IF EXISTS invoices CASCADE;`;
 
     // Create the "invoices" table if it doesn't exist
     // const createTable = await client.sql`
@@ -115,7 +115,7 @@ async function seedCustomers(client) {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
     // Reset the "customers" table
-    await client.sql`DROP TABLE IF EXISTS customers CASCADE;`;
+    // await client.sql`DROP TABLE IF EXISTS customers CASCADE;`;
 
     // Create the "customers" table if it doesn't exist
     // const createTable = await client.sql`
@@ -163,7 +163,7 @@ async function seedCustomers(client) {
 async function seedRevenue(client) {
   try {
     // Reset the "revenue" table
-    await client.sql`DROP TABLE IF EXISTS revenue;`;
+    // await client.sql`DROP TABLE IF EXISTS revenue;`;
 
     // Create the "revenue" table if it doesn't exist
     // const createTable = await client.sql`
